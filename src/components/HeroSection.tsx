@@ -33,6 +33,8 @@ const HeroSection: React.FC = () => {
 
   {/* //Mobile Screen Bulding image  */}  
           <div className="w-full lg:hidden">
+
+            
             
             {/* Mobile Screen Building Image */}
             <div className="w-full h-auto p-4">
