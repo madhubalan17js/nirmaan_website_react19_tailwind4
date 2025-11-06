@@ -92,8 +92,8 @@ const AdvancedTechSection: React.FC = () => {
         
         {/* === HEADER BLOCK === */}
         <div className="mb-12 max-w-4xl">
-          <p className="text-3xl lg:text-5xl font-light leading-tight text-gray-700">
-            Empowering your <span className="font-bold">Projects</span> with
+          <p className="text-grayN text-3xl lg:text-5xl font-light leading-tight text-gray-700">
+            Empowering your <span className="font-bold text-blackN">Industry</span> with <span className="font-bold text-blackN">Innovative</span>
               <span className="hidden lg:inline">
                   <br />
                 </span>

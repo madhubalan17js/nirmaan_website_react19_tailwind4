@@ -182,13 +182,13 @@ const WhatWeOfferSection: React.FC = () => {
           
           {/* Headline and Description */}
           <div className="w-full lg:w-3/4">
-            <p className='text-3xl lg:text-5xl font-normal'>
+            <p className='text-grayN text-3xl lg:text-5xl font-normal'>
               What We
              
               <RotatingHighlight text="Offer ?"/>
               
             </p>
-            <p className={cn('mt-4 text-lg max-w-2xl', HEADER_TEXT_COLOR)}>
+            <p className={cn('text-blackN mt-4 text-lg max-w-2xl', HEADER_TEXT_COLOR)}>
               We provide a comprehensive range of services for all your MEP needs.
             </p>
           </div>

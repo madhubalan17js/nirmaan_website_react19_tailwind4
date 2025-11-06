@@ -66,11 +66,12 @@ const DesktopFooterLayout: React.FC = () => (
 
       {/* LEFT: Text & Buttons (e.g., 60% width on desktop) */}
       <div className="flex-1 w-full text-left lg:w-[60%]"> {/* Adjusted width for a better visual split */}
-        <h2 className="text-3xl font-normal text-gray-900 lg:text-5xl lg:font-semibold">
+        <h2 className="text-blackN text-3xl font-normal lg:text-5xl ">
           Build Smarter with
-          <span className="ml-2 inline-block rounded-lg px-2 py-1 text-white bg-destructive font-bold">
+          <RotatingHighlight text="Nirmaan"/>
+          {/* <span className=" ml-2 inline-block rounded-lg px-2 py-1 text-white bg-destructive font-bold">
             Nirmaan
-          </span>
+          </span> */}
         </h2>
         <p className="mt-4 text-xl text-gray-600 max-w-xl mx-auto lg:mx-0">
           Transform your construction experience with our innovative MEP solutions tailored for your needs.
@@ -149,7 +150,7 @@ const DesktopFooterLayout: React.FC = () => (
             <div key={index} className="flex-1">
               <h3 className="text-sm font-semibold text-gray-500 mt-2">Head Office</h3>
               {headOfficeAddress.map((line, lineIndex) => (
-                <p key={lineIndex} className="text-md font-semibold" style={{ color: ADDRESS_COLOR }}>{line}</p>
+                <p key={lineIndex} className="text-md font-bold" style={{ color: ADDRESS_COLOR }}>{line}</p>
               ))}
             </div>
           ))}

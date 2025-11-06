@@ -393,14 +393,14 @@ const OurPresentationSection: React.FC = () => {
                     
                     {/* LEFT: Text, Buttons, and Metrics (60% Width on Desktop) */}
                     <div className="w-full lg:w-3/5 text-left order-last lg:order-first">
-                       <p className='text-3xl lg:text-5xl font-normal'>
+                       <p className=' text-grayN text-3xl lg:text-5xl font-normal'>
                             Our
                         
                               <RotatingHighlight
                             text={"Presence"}
                         />
                         </p>
-                        <p className={cn('mt-4 text-lg max-w-2xl', MUTE_TEXT_COLOR)}>
+                        <p className={cn('text-blackN mt-4 text-lg max-w-2xl', MUTE_TEXT_COLOR)}>
                             We provide consistent and hassle-free services across the nation by leveraging our proprietary technology-based execution and monitoring systems.
                         </p>
 
@@ -447,8 +447,8 @@ const OurPresentationSection: React.FC = () => {
                 
                 {/* Headline (60% on Desktop) */}
                 <div className="w-full lg:w-[60%]">
-                    <p className='text-3xl lg:text-5xl font-normal leading-tight text-gray-700'>
-                        Our Nationwide Reach <br /> and
+                    <p className='text-grayN text-3xl lg:text-5xl font-normal leading-tight text-gray-700'>
+                        Our <span className="font-bold text-blackN">Nationwide</span> Reach <br /> and
                         <RotatingHighlight
                             text={"Impact"}
                         />
@@ -456,7 +456,7 @@ const OurPresentationSection: React.FC = () => {
                 </div>
                 
                 {/* Description (40% on Desktop) */}
-                <div className='w-full lg:w-[40%] mt-2 lg:mt-0'>
+                <div className='text-blackN w-full lg:w-[40%] mt-2 lg:mt-0'>
                     <p className='text-lg max-w-lg text-gray-600'>
                         Explore our extensive presence across India. We proudly serve over 15 cities with a commitment to excellence.
                     </p>

@@ -106,79 +106,50 @@ import MANNEQUIN_IMAGE from '../../assets/devshree26_A_hyper-realistic_digital_r
 const BORDER_COLOR = 'border-destructive';
 const TEXT_COLOR = 'text-white'; // Base text color - **Keep white for contrast on the gradient**
 const ACCENT_COLOR = 'text-destructive'; // The red for 'Expert Team' highlight
+// Import and constants unchanged
 
 const ExpertTeamCTA: React.FC = () => {
     return (
         <section className="w-full py-16">
             <div className="mx-auto max-w-[1280px] px-6">
-                
-                {/* === MAIN CTA CARD === */}
-                <div 
-                    // Set a taller height on desktop to accommodate the image and content
-                    className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] rounded-3xl shadow-2xl " 
-                >
+                <div className="relative w-full h-[230px] md:h-[350px] lg:h-[400px] rounded-3xl shadow-2xl">
                     
-                    {/* 1. ABSOLUTE BACKGROUND LAYER (Color and Gradient) */}
-                    <div 
-                        className="absolute inset-0 z-0 rounded-3xl" 
-                        style={{ 
-                            // Use a solid red color or the base red with a subtle pattern (removed blend mode for simplicity)
-                            backgroundColor: 'rgba(215, 60, 60, 0.8)', // Base Red
-                            // You can add a background image here if needed, but the gradient is key
+                    {/* Background Layer */}
+                    <div
+                        className="absolute inset-0 z-0 rounded-3xl"
+                        style={{
+                            backgroundColor: 'rgba(215, 60, 60, 0.8)',
                         }}
                     >
-                        {/* Gradient Overlay (Matches the soft pink/red fade on the left side of the screenshot) */}
-                        <div 
+                        <div
                             className="absolute inset-0 rounded-3xl"
-                            style={{ 
-                                // Creates the fade from light/pink on the left to the darker red background
+                            style={{
                                 background: 'linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.2) 20%, transparent 60%)',
                             }}
                         />
                     </div>
-                    
 
-                    {/* 2. MANNEQUIN IMAGE (Absolute Positioned, Responsive Placement) */}
-                    <div 
-                        // Position the image container to the right side
-                        className="absolute right-0 bottom-0 z-10 h-full w-2/3 md:w-1/2 lg:w-[45%] pointer-events-none"
-                    >
+                    {/* Mannequin Image Container */}
+                    <div className="absolute right-[15%] lg:right-[20%] top-[-10%] z-10 h-full w-2/3 md:w-1/2 lg:w-[38.9%] pointer-events-none">
                         <ResizableImage
                             src={MANNEQUIN_IMAGE}
                             alt="Construction Mannequin Head"
-                            className="
-                                // Mobile/Default: Full height, take up 100% of the parent container width (2/3)
-                                h-full w-full object-cover 
-                                
-                                // Ensure the head is visible and positioned
-                                object-right 
-                                // Minor horizontal adjustment for composition
-                                transform translate-x-4 md:translate-x-0
-                            " 
-                            fit="cover" // Use 'cover' to ensure it fills the space and crops slightly if needed
+                            className="h-auto w-full object-contain object-right"
+                            fit="contain"
                             lazyLoad={false}
                         />
                     </div>
 
-                    {/* 3. FOREGROUND CONTENT (Relative Z-Index, Aligned to Top-Left/Center) */}
-                    <div 
-                        // Use Flexbox to align content to the left and center the items vertically
-                        className="relative z-20 h-full w-full p-6 md:p-12 
-                                    flex flex-col justify-center items-start 
-                                    max-w-[80%] md:max-w-[60%] lg:max-w-[50%]
-                                "
-                    >
-                        
-                        {/* Button (Positioned at the top of the content area) */}
+                    {/* Foreground Content */}
+                    <div className="relative z-20 h-full w-full p-6 md:p-12 flex flex-col justify-center items-start max-w-[80%] md:max-w-[60%] lg:max-w-[50%]">
                         <div className="mb-6">
-                            <Button 
-                                size="lg" 
-                                variant="outline" // Use standard outline for border
-                                className="px-6 py-4 text-xl font-bold border-4 rounded-xl shadow-lg transition-all hover:bg-destructive hover:text-white" 
-                                style={{ 
-                                    // Custom styles to match the border/text in the screenshot exactly
-                                    borderColor: BORDER_COLOR, 
-                                    color: BORDER_COLOR, 
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="px-6 py-4 text-xl font-bold border-4 rounded-xl shadow-lg transition-all hover:bg-destructive hover:text-white"
+                                style={{
+                                    borderColor: 'rgb(215 60 60)',
+                                    color: 'rgb(215 60 60)',
                                     backgroundColor: 'white',
                                 }}
                                 onClick={() => console.log('Connect with us clicked')}
@@ -186,12 +157,9 @@ const ExpertTeamCTA: React.FC = () => {
                                 Connect with us
                             </Button>
                         </div>
-                        
-                        {/* Headline/Slogan (Positioned below the button) */}
-                        <h2 className={cn("text-xl md:text-3xl lg:text-4xl font-bold leading-snug z-10", TEXT_COLOR)}>
-                            Achieve flawless project 
-                            execution with our 
-                            <span className={cn("font-extrabold", ACCENT_COLOR, "block mt-1")}>
+                        <h2 className={cn('text-xl md:text-3xl lg:text-4xl font-bold leading-snug z-10', 'text-white')}>
+                            Achieve flawless project execution with our
+                            <span className={cn('font-extrabold', 'text-destructive', 'block mt-1')}>
                                 Expert Team
                             </span>
                         </h2>

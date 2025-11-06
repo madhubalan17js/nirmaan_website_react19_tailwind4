@@ -62,11 +62,11 @@ export default function NirmaanAdvantageSection() {
       <div className="mx-auto max-w-[1280px]">
         {/* Header */}
         <div className="mb-12 max-w-4xl">
-           <p className='text-3xl lg:text-5xl font-normal'>
+           <p className='text-grayN text-3xl lg:text-5xl font-normal'>
             The Nirmaan 
             <RotatingHighlight text='Advantage'/>
           </p>
-          <p className={cn("text-lg leading-relaxed", MUTE_TEXT_COLOR)}>
+          <p className={cn("text-blackN text-lg leading-relaxed", MUTE_TEXT_COLOR)}>
             Our proprietary planning and tracking technology, curated manpower and large supplier base ensure seamless
             project delivery.
           </p>

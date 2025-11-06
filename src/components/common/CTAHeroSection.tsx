@@ -49,10 +49,10 @@ const CTAHeroSection: React.FC = () => {
                         <div className="w-full max-w-lg lg:w-1/2">
                             
                             {/* Headline */}
-                            <h2 className={cn("text-3xl md:text-5xl font-bold leading-tight", TEXT_COLOR)}>
-                                Struggling <span className="font-light">with project</span>
-                                <br />
-                                <span className="font-light">delays and rising MEP</span>
+                            <h2 className={cn("text-grayN text-3xl md:text-5xl leading-tight", TEXT_COLOR)}>
+                                <span className='font-semibold text-blackN'>Struggling</span> <span className="font-light">with project</span>
+                                <br />delays and rising
+                                <span className="font-semibold text-blackN"> MEP</span>
                                 <br />
                                
                                  <RotatingHighlight

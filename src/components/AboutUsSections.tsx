@@ -116,7 +116,7 @@ const AboutUsSections: React.FC = () => {
         {/* A. NIRMAAN LEADERSHIP (FIXED)                                */}
         {/* ---------------------------------------------------------- */}
         <div className="mb-16">
-         <p className='text-3xl lg:text-5xl font-normal mb-8'>
+         <p className='text-grayN text-3xl lg:text-5xl font-normal'>
             Nirmaan
             <RotatingHighlight text="Leadership"/>
           </p>
@@ -135,12 +135,12 @@ const AboutUsSections: React.FC = () => {
         <div className="mb-16">
           <div className="flex justify-between items-end mb-8">
             <div>
-              <p className='text-3xl lg:text-5xl font-normal'>
+              <p className='text-grayN text-3xl lg:text-5xl font-normal'>
                 Meet our
                 <RotatingHighlight text="Team"/>
                 
               </p>
-              <p className={cn(' hidden lg:block mt-2 text-lg max-w-lg', TEXT_COLOR)}>
+              <p className={cn('text-blackN hidden lg:block mt-2 text-lg max-w-lg', TEXT_COLOR)}>
                 The strength of our work comes from the people behind it. Meet the team that drives it forward.
               </p>
             </div>
@@ -164,7 +164,7 @@ const AboutUsSections: React.FC = () => {
         {/* C. INDUSTRIES WE OPERATE IN                                 */}
         {/* ---------------------------------------------------------- */}
         <div>
-          <p className='text-3xl lg:text-5xl font-normal mb-8'>
+          <p className='text-grayN text-3xl lg:text-5xl font-normal mb-8'>
             
             <RotatingHighlight text="Industries"/>
              we operate in

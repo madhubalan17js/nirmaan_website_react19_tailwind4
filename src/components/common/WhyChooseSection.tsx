@@ -22,32 +22,37 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   className
 }) => {
   const IconComponent = LucideIcons[icon] as React.ElementType;
-  const ICON_COLOR = 'text-destructive';
+  const ICON_COLOR = 'text-blackN';
   const BORDER_COLOR = 'border-destructive';
 
   return (
     // Card Container: White background, rounded corners, shadow, and a fixed red left border
     <div 
       className={cn(
-        'relative flex flex-col p-6  bg-white shadow-lg overflow-hidden',
+        'relative flex flex-col p-4 text-blackN  bg-white shadow-lg overflow-hidden',
         'rounded-none border-l-4  lg:rounded-md lg:border-2 ' + BORDER_COLOR, // Red left border for the visual stripe
         className
       )}
     >
       <div className="flex items-start space-x-4">
         {/* Icon (Fixed size and color) */}
-        <div className="flex-shrink-0 pt-1">
+        {/* <div className="flex-shrink-0 pt-1">
           {IconComponent && (
             <IconComponent className={cn('h-6 w-6', ICON_COLOR)} aria-hidden="true" />
           )}
-        </div>
+        </div> */}
 
         {/* Title and Description */}
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-gray-900 leading-snug mb-1">
+          <div className="flex-shrink-0 pb-2">
+          {IconComponent && (
+            <IconComponent className={cn('h-10 w-10', ICON_COLOR)} aria-hidden="true" />
+          )}
+          </div>
+          <h3 className="text-xl font-bold  leading-snug mb-1">
             {title}
           </h3>
-          <p className="text-base text-gray-600 leading-snug">
+          <p className="text-base  leading-snug">
             {description}
           </p>
         </div>
@@ -99,7 +104,7 @@ const WhyChooseSection: React.FC = () => {
           
           {/* Headline and Description */}
           <div className="w-full lg:w-3/4">
-            <p className='text-3xl lg:text-5xl font-normal'>
+            <p className='text-grayN text-3xl lg:text-5xl font-normal'>
               Why Choose
               <RotatingHighlight
                text={"Nirmaan?"}
@@ -109,7 +114,7 @@ const WhyChooseSection: React.FC = () => {
               </span> */}
               
             </p>
-            <p className={cn('mt-4 text-lg max-w-2xl', TEXT_COLOR)}>
+            <p className={cn('text-blackN mt-4 text-lg max-w-2xl', TEXT_COLOR)}>
               Our proprietary planning and tracking technology, curated manpower and large supplier base ensure seamless project delivery.
             </p>
           </div>

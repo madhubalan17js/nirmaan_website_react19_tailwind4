@@ -28,7 +28,7 @@ const RotatingHighlight: React.FC<RotatingHighlightProps> = ({
     // Outer container: Applies the forward rotation to the whole box
     <span 
       className={cn(
-        "text-white px-2 py-1 ml-2 inline-block bg-destructive",
+        "text-white px-2 py-1 ml-2 inline-block bg-destructive font-semibold",
         "transform", // Enable transformations
         rotateClass // e.g., -rotate-3
       )}
