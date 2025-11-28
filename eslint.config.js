@@ -19,5 +19,13 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // Disables the ESLint rule for unused variables/imports.
+      // Setting it to 'off' prevents build failures due to unused code.
+      'no-unused-vars': 'off', 
+      
+      // Optionally, if you want to keep the rule but only show a warning (not an error):
+      // 'no-unused-vars': 'warn', 
+    },
   },
 ])

@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutUsSections from '@/components/AboutUSSections';
+import AboutUsSections from '@/components/AboutUsSections';
 import ExpertTeamCTA from '@/components/common/ExpertTeamCTA';
 import OurPresentationSection from '@/components/common/OurPersenceSection';
 
