@@ -68,22 +68,22 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
 const featuresData = [
   {
-    icon: 'Link', // Lucide icon for link/connection/infinity
+    icon: 'HandCoins', // Lucide icon for link/connection/infinity
     title: 'One Stop Solution',
     description: 'From drawing to handover, you get all services under one roof.',
   },
   {
-    icon: 'Infinity', // Lucide icon for infinity/loops (Zero Delay)
+    icon: 'Route', // Lucide icon for infinity/loops (Zero Delay)
     title: 'Zero Delay Delivery',
     description: 'Utilizing the latest technology for efficient outcomes.',
   },
   {
-    icon: 'ChevronLeft', // Placeholder for the 'less than' icon (Zero Cost Overrun)
+    icon: 'ChevronFirst', // Placeholder for the 'less than' icon (Zero Cost Overrun)
     title: 'Zero Cost Overrun',
     description: 'Commitment to safety in every project we undertake.',
   },
   {
-    icon: 'HardHat', // Lucide icon for BOQ/Safety
+    icon: 'Rocket', // Lucide icon for BOQ/Safety
     title: 'One Day BOQ',
     description: 'Commitment to safety in every project we undertake.',
   },

@@ -227,6 +227,10 @@ import ResizableImage from '../ResizableImage'; // Assuming the path to your reu
 import { Mail, Phone, X, Linkedin } from 'lucide-react'; // Example imports for completeness
 import RotatingHighlight from './RotatingHighlight';
 
+import {//NationWideImpact Images Desktop
+  Foundation, Impact, Reach, Growth,OurPresence,
+  //NationWideImpact Images Mobile
+  Foundation_Mobile, Impact_Mobile, Reach_Mobile, Growth_Mobile,OurPresence_Mobile} from '../images'
 // ==========================================================
 // CONSTANTS & DATA (TIMELINE & PRESENCE)
 // ==========================================================
@@ -262,22 +266,22 @@ const timelineData: TimelineEntry[] = [
   {
     year: "2021", title: "Laying the ", titleHighlight: "Foundation", description: "We laid our foundation by completing our first 15 landmark projects and securing our first 5 key clients.",
     bulletPoints: ["Completed our first 15 landmark projects.", "Secured our first 5 key clients.", "Grew our founding team to 20 members."],
-    image: "/abstract-foundation-architecture.jpg", imageAlt: "Foundation milestone",
+    image: Foundation, imageAlt: "Foundation milestone",
   },
   {
     year: "2022", title: "Accelerated ", titleHighlight: "Growth", description: "Fueled by innovation and efficiency, we continue to scale new heights in project delivery, expanding our footprint and strengthening our capabilities across India.",
     bulletPoints: ["Expanded operations to 5 major cities.", "Completed over 75 projects.", "Achieved a 200% increase in project volume."],
-    image: "/growth-expansion-network.jpg", imageAlt: "Growth milestone",
+    image: Growth, imageAlt: "Growth milestone",
   },
   {
     year: "2023", title: "Scaling ", titleHighlight: "Impact", description: "Through consistent delivery and strategic partnerships, we continue to scale our impact, driving growth and excellence across every project we undertake.",
     bulletPoints: ["Successfully delivered our largest-ever commercial project.", "Completed over 200 projects.", "Secured a strategic partnership with a key industry leader."],
-    image: "/impact-scaling-tower.jpg", imageAlt: "Impact milestone",
+    image: Impact, imageAlt: "Impact milestone",
   },
   {
     year: "2024", title: "Nationwide ", titleHighlight: "Reach", description: "With a growing presence across major cities, we continue to expand our reach, delivering impactful and sustainable projects across India.",
     bulletPoints: ["Exceeded the 350-project milestone.", "Expanded our footprint to 15+ cities nationwide.", "Launched a new service vertical focusing on sustainable solutions."],
-    image: "/nationwide-reach-map-india.jpg", imageAlt: "Nationwide reach milestone",
+    image: Reach, imageAlt: "Nationwide reach milestone",
   },
 ];
 
@@ -306,7 +310,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
       
       {/* Timeline Dot (Mobile Left, Desktop Center from MD) */}
       <div className={cn(
-        'absolute left-6 top-0 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 border-4 border-white shadow-lg',
+        'absolute left-1/12 top-8 w-6 h-6 rounded-full transform -translate-x-1/2 z-10 border-4 border-white shadow-lg',
         BG_RED_COLOR,
         'md:left-1/2 md:-translate-x-1/2'
       )} />
@@ -333,7 +337,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
           )}
         >
           {/* ... (Text content: Year, Title, Description, Bullets) ... */}
-          <div className={cn("text-sm font-semibold mb-2", RED_COLOR)}>{item.year}</div>
+          <div className={cn("text-md font-bold mb-2", RED_COLOR)}>{item.year}</div>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             {item.title}
             {/* <span className={cn(BG_RED_COLOR, "text-white px-2 py-1 ml-2 inline-block","transform -rotate-3")}>{item.titleHighlight}</span> */}
@@ -342,10 +346,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ item, index }) => {
             />
           </h3>
           <p className={cn("mb-6 leading-relaxed", MUTE_TEXT_COLOR)}>{item.description}</p>
-          <ul className="space-y-2 list-none">
+          <ul className="hidden md:block space-y-2 list-none">
             {item.bulletPoints.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <span className={cn(RED_COLOR, "font-bold flex-shrink-0 mt-1")}>•</span>
+              <li key={idx} className="flex items-center gap-3">
+                <span className={cn(RED_COLOR, "font-bold h-2 w-2 bg-destructive rounded-full")}>  </span>
                 <span className={MUTE_TEXT_COLOR}>{point}</span>
               </li>
             ))}
@@ -389,17 +393,30 @@ const OurPresentationSection: React.FC = () => {
                 {/* ========================================================== */}
                 {/* A. PRESENCE / STATS BLOCK (Top Section) */}
                 {/* ========================================================== */}
+                
                 <div className="flex flex-col-reverse lg:flex-row justify-between items-center mb-16">
                     
                     {/* LEFT: Text, Buttons, and Metrics (60% Width on Desktop) */}
                     <div className="w-full lg:w-3/5 text-left order-last lg:order-first">
-                       <p className=' text-grayN text-3xl lg:text-5xl font-normal'>
+                     <div className="flex justify-between items-end mb-6">
+                      <p className=' text-grayN text-3xl lg:text-5xl font-normal items-end'>
                             Our
                         
                               <RotatingHighlight
                             text={"Presence"}
                         />
                         </p>
+                        <div className='md:hidden '>
+                         <ResizableImage 
+                            src={OurPresence_Mobile} 
+                            alt="Nationwide Presence Map" 
+                            fit='fill'
+                        />
+                        </div>
+                        
+
+                    </div>
+                       
                         <p className={cn('text-blackN mt-4 text-lg max-w-2xl', MUTE_TEXT_COLOR)}>
                             We provide consistent and hassle-free services across the nation by leveraging our proprietary technology-based execution and monitoring systems.
                         </p>
@@ -408,19 +425,20 @@ const OurPresentationSection: React.FC = () => {
                             <Button variant="destructive" size="lg" className="px-8 py-3 text-lg font-bold">
                                 Contact
                             </Button>
-                            <Button size="lg" className={cn("px-8 py-3 text-lg font-bold", BUTTON_OUTLINE_COLOR)} onClick={() => console.log('Learn More clicked')}>
-                                Learn More
-                            </Button>
+                         
+                                       <Button variant="nirmaanOutline" size="lg" className="px-6 py-3 text-lg" onClick={() => console.log('Consult clicked')}>
+                                                         Learn More &gt;
+                                                       </Button>
                         </div>
                         
                         {/* Metrics/Stats (90+ Projects, 8.5 Lac+, 100+ Partners) */}
-                        <div className="grid grid-cols-3 gap-4 mt-12 max-w-lg">
+                        <div className="grid grid-cols-3 gap-2 md:gap-4 mt-12 max-w-lg">
                             {metricsData.map((metric, index) => (
-                                <div key={index} className="flex flex-col items-center justify-center p-4 rounded-xl border border-gray-300 bg-white shadow-lg">
-                                    <p className={cn('text-2xl lg:text-3xl font-extrabold', RED_COLOR)}>
+                                <div key={index} className="flex flex-col items-center justify-center p-2 rounded-xl border border-gray-300 bg-white shadow-lg">
+                                    <p className={cn('text-xl md:text-3xl font-extrabold', RED_COLOR)}>
                                         {metric.value}
                                     </p>
-                                    <p className={cn('text-sm lg:text-base font-semibold text-gray-700 mt-1')}>
+                                    <p className={cn('text-xs md:text-base font-semibold text-gray-700 mt-1')}>
                                         {metric.label}
                                     </p>
                                 </div>
@@ -429,9 +447,9 @@ const OurPresentationSection: React.FC = () => {
                     </div>
 
                     {/* RIGHT: Map Image (40% Width on Desktop) */}
-                    <div className="w-full lg:w-2/5 mb-8 lg:mb-0 relative h-full">
+                    <div className="hidden lg:block w-full lg:w-2/5 mb-8 lg:mb-0 relative h-full">
                         <ResizableImage 
-                            src={INDIA_MAP_IMAGE} 
+                            src={OurPresence} 
                             alt="Nationwide Presence Map" 
                             className="w-full h-auto object-contain"
                         />

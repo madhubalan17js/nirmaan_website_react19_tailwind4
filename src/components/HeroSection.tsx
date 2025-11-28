@@ -1,181 +1,4 @@
-// import React from 'react';
-// import { Button } from './ui/button'; // Assuming Shadcn Button
-// import ResizableImage from './ResizableImage'; // The reusable image component
 
-// // Assuming the image import from the new path
-// import HERO_IMAGE from '../assets/Mask group.png';
-// import Home_Placeholder from '../assets/Placeholder Image.png';
-// import RotatingHighlight from './common/RotatingHighlight';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// // Constants (ensure these match your theme/global constants)
-// const BRAND_RED = 'bg-destructive';
-// const BRAND_RED_TEXT = 'text-destructive';
-// const LIGHT_BG = '#f5f5f5'; // Light gray background of the section
-
-// const partnerLogos = [
-//   { src: 'decathlon.png', alt: 'Decathlon Logo' },
-//   { src: 'attic.png', alt: 'ATTIC Logo' },
-//   { src: 'grant-thornton.png', alt: 'Grant Thornton Logo' },
-//   { src: 'airbrick.png', alt: 'AirBrick Infra Logo' },
-//   { src: '91squarefeet.png', alt: '91 Square Feet Logo' },
-// ];
-
-// const HeroSection: React.FC = () => {
-//   return (
-//     <div className="w-full">
-      
-
-
-
-//       {/* ========================================================== */}
-//       {/* A. MAIN HERO BLOCK (Correct Flex-Split) */}
-//       {/* ========================================================== */}
-//       <div className="w-full overflow-hidden" style={{ backgroundColor: LIGHT_BG }}>
-
-//   {/* //Mobile Screen Bulding image  */}  
-//           <div className="w-full lg:hidden">
-
-            
-            
-//             {/* Mobile Screen Building Image */}
-//             <div className="w-full h-auto p-4">
-//                 <ResizableImage
-//                   src={Home_Placeholder}
-//                   alt="Architectural Background Mobile"
-//                   className="w-full h-auto object-cover"
-//                   fit="cover"
-//                 />
-//             </div>
-            
-//             {/* RED SEPARATOR LINE (W-FULL) */}
-//             <div className="w-full h-[1px] bg-destructive my-4"></div> 
-//         </div>
-
-//         {/* 1. TEXT AND IMAGE CONTAINER (Relative to hold the background image) */}
-//         <div className="relative mx-auto max-w-[1280px] px-6 pt-0 pb-0 lg:pt-14 lg:pb-0">
-
-        
-
-
-//           {/* 2. TEXT AND ENGINEER IMAGE (Main Content Layer - z-10) */}
-//           <div className="relative z-10 flex flex-col gap-8 lg:flex-row">
-
-//             {/* LEFT: Text and CTA Buttons (The single block taking the column width) */}
-//             <div className="w-full text-left">
-//               <p className="text-3xl font-light leading-tight text-grayN lg:text-5xl">
-//                 Empowering <span className="font-bold text-blackN">India</span> with <span className="font-bold text-blackN">Innovative</span>
-//                 <span className="hidden lg:inline">
-//                   <br />
-//                 </span>
-//                 {" "}and
-
-//                 <RotatingHighlight text="TechFirst"/> 
-//                 <span className="font-bold ml-1 text-blackN">MEP</span> Solutions.
-//               </p>
-
-//               <p className="mt-6 text-xl text-blackN max-w-lg">
-//                 Your trusted partner for cutting-edge construction solutions across the nation, ensuring quality and Technology-driven MEP contracting services
-//               </p>
-
-//               <div className="mt-8 flex space-x-4">
-//                 <Button variant="destructive" size="lg" className="px-6 py-3 text-lg" onClick={() => console.log('Quote clicked')}>
-//                   Quote
-//                 </Button>
-//                 <Button variant="nirmaanOutline" size="lg" className="px-6 py-3 text-lg" onClick={() => console.log('Consult clicked')}>
-//                   Consult
-//                 </Button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* 3. BACKGROUND IMAGE (Positioned Absolutely) */}
-//         <div className='hidden lg:flex relative w-full h-full items-end top-[-70px]' >
-//           <div className='sticky left-38 lg:left-55 z-10'>
-//             <ResizableImage
-//               src={HERO_IMAGE}
-//               alt="Hero Background"
-//               className="object-cover"
-//             />
-//           </div>
-//           <div>
-//             <ResizableImage src={Home_Placeholder} alt="Hero Background" className="w-full h-auto object-cover" />
-//           </div>
-//         </div>
-
-//         <div className="hidden lg:block relative w-full h-[1px] mb-8 bg-destructive top-[-70px]"></div> {/* Separator Line */}
-//       </div>
-
-
-
-//       {/* ========================================================== */}
-//       {/* B. TRUSTED BY SECTION (Logos) - Based on second crop image */}
-//       {/* ========================================================== */}
-//       <div className="w-full pt-10 pb-12 lg:pt-4" style={{ backgroundColor: LIGHT_BG }}>
-//         <div className="mx-auto max-w-[1280px] px-6">
-
-//           {/* Headline */}
-//           <div className=" flex flex-row justify-between lg:text-left mb-10">
-//             <p className="text-3xl lg:text-4xl font-light text-grayN">
-//               Trusted by <span className="font-bold text-blackN">Industry leaders</span>
-//               <br />
-//               across
-              
-//                 <RotatingHighlight text="India"/> 
-
-              
-//             </p>
-//             <div className="hidden lg:flex items-center">
-//               <Button
-//                 variant="destructive"
-//                 size="lg"
-//                 className="px-6 py-3 text-lg w-full lg:w-auto"
-//               >
-//                 Get Quote
-//               </Button>
-//             </div>
-//           </div>
-
-//           {/* Logos Container (Horizontal Scroll on Mobile, Grid/Flex on Desktop) */}
-//           <div className="flex overflow-x-auto lg:grid lg:grid-cols-5 lg:gap-8 justify-between items-center space-x-6 lg:space-x-0" 
-//            style={{
-//             // Gradient from transparent on the left to a solid color on the right
-//             // This creates a mask on the right edge.
-//             background: `linear-gradient(to right, 
-//                 rgb(195,215,226) 0%, /* Start fully transparent */
-//                 rgb(98,131,153) 100%    /* Fade to the light background color at the edge */
-//             )`
-//         }}
-//           >
-
-//             {partnerLogos.map((logo, index) => (
-//               <div
-//                 key={index}
-//                 className="flex-shrink-0 w-[45%] sm:w-1/3 lg:w-full h-20 bg-white shadow-md rounded-lg flex items-center justify-center p-4 m-4"
-//               >
-//                 <img
-//                   src={logo.src} // Placeholder for your image path
-//                   alt={logo.alt}
-//                   className="w-full h-auto object-contain max-h-16"
-//                 />
-//               </div>
-//             ))}
-
-//             {/* Get Quote Button (Right Aligned on Desktop) */}
-            
-//           </div>
-
-//         </div>
-//             <div className="w-full h-[1px] bg-destructive my-4"></div> 
-
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default HeroSection;
 
 import React from 'react';
 // Import Swiper components
@@ -189,10 +12,10 @@ import 'swiper/css';
 
 import { Button } from './ui/button'; // Assuming Shadcn Button
 import ResizableImage from './ResizableImage'; // The reusable image component
-
+import{Hero_Image, Home_Placeholder} from './images';
 // Assuming the image import from the new path
-import HERO_IMAGE from '../assets/Mask group.png';
-import Home_Placeholder from '../assets/Placeholder Image.png';
+// import Hero_Image from '../assets/Mask group.png';
+// import Home_Placeholder from '../assets/Placeholder Image.png';
 import RotatingHighlight from './common/RotatingHighlight';
 
 
@@ -220,7 +43,7 @@ const HeroSection: React.FC = () => {
       {/* ========================================================== */}
       {/* A. MAIN HERO BLOCK (Correct Flex-Split) */}
       {/* ========================================================== */}
-      <div className="w-full overflow-hidden" style={{ backgroundColor: LIGHT_BG }}>
+      <div className="relative w-full overflow-hidden" style={{ backgroundColor: LIGHT_BG }}>
 
         {/* //Mobile Screen Bulding image  */}  
         <div className="w-full lg:hidden">
@@ -234,7 +57,7 @@ const HeroSection: React.FC = () => {
               />
           </div>
           {/* RED SEPARATOR LINE (W-FULL) */}
-          <div className="w-full h-[1px] bg-destructive my-4"></div> 
+          {/* <div className="w-full h-[1px] bg-destructive my-4"></div>  */}
         </div>
 
         {/* 1. TEXT AND IMAGE CONTAINER (Relative to hold the background image) */}
@@ -273,20 +96,20 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* 3. BACKGROUND IMAGE (Positioned Absolutely) */}
-        <div className='hidden lg:flex relative w-full h-full items-end top-[-70px]' >
-          <div className='sticky left-38 lg:left-55 z-10'>
+        <div className='hidden lg:flex justify-center relative w-full h-full items-end top-[-70px]' >
+          <div className='relative top-0 left-[15%] lg:left-[15%] z-10'>
             <ResizableImage
-              src={HERO_IMAGE}
+              src={Hero_Image}
               alt="Hero Background"
               className="object-cover"
             />
           </div>
-          <div>
+          <div className='relative'>
             <ResizableImage src={Home_Placeholder} alt="Hero Background" className="w-full h-auto object-cover" />
           </div>
         </div>
 
-        <div className="hidden lg:block relative w-full h-[1px] mb-8 bg-destructive top-[-70px]"></div> {/* Separator Line */}
+        <div className="hidden lg:block relative w-full h-[1px] mb-8 bg-destructive top-[-70px]"></div> 
       </div>
 
 

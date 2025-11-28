@@ -349,7 +349,7 @@ const Footer: React.FC = () => {
 
 
           {/* E. MOBILE LOGO & COPYRIGHT */}
-          <div className="relative mt-12 flex flex-col items-center pt-8 overflow-hidde">
+          <div className="flex pt-30 flex-col items-center  overflow-hidden">
 
             {/* The main container for the logo and hard hat */}
             <div className='relative z-10 flex flex-row items-center justify-center space-x-4'> {/* Added relative/z-10 */}
@@ -370,16 +370,16 @@ const Footer: React.FC = () => {
                 style={{
                   width: '100%',
                   height: 'auto',
+                  left: '28%', // Center horizontally
                   top: '-170%', // Move up 
-                  right: '-35%', // Move right
+                  right: '0', // Move right
                   transform: 'rotate(0deg)' // Optional: Match the slight rotation
                 }}
               >
                 <ResizableImage
                   src={HArdHAT_CAPSTICKER}
                   alt="Construction Hard Hat"
-                  className="w-full h-auto object-contain" // w-full scales with the absolute container's width
-                  fit="fill"
+                  fit="cover"
                   lazyLoad={false}
                 />
               </div>

@@ -402,13 +402,13 @@ export default function TestimonialCarousel() {
   const swiperNextButtonClass = 'testimonial-swiper-button-next';
 
   return (
-    <div className="w-full bg-white pt-16 pb-12 px-4 relative"> {/* Added relative for the outer container */}
+    <div className="w-full"> {/* Added relative for the outer container */}
       
       {/* Red top border */}
-      <div className={`h-1 ${RED_BORDER_COLOR}`}></div>
+      <div className={ ` relative h-1 ${RED_BORDER_COLOR}`}></div>
 
       {/* Main Content Container */}
-      <div className="max-w-4xl mx-auto py-12"> 
+      <div className="max-w-4xl mx-auto py-12 relative overflow-hidden"> 
         
         {/* ========================================================== */}
         {/* SWIPER CONTAINER */}
@@ -427,10 +427,10 @@ export default function TestimonialCarousel() {
           speed={500} // Transition speed
           
           // 6. Navigation (Arrows)
-          navigation={{
-            prevEl: `.${swiperPrevButtonClass}`,
-            nextEl: `.${swiperNextButtonClass}`,
-          }}
+          // navigation={{
+          //   prevEl: `.${swiperPrevButtonClass}`,
+          //   nextEl: `.${swiperNextButtonClass}`,
+          // }}
           
           // 7. Pagination (Dots) - Customizing the class name
           pagination={{ 
@@ -500,9 +500,8 @@ export default function TestimonialCarousel() {
       {/* 4. EXTERNAL NAVIGATION BUTTONS (For controlling Swiper) */}
       {/* ========================================================== */}
       {/* Desktop Arrows (Positioned outside the max-width container) */}
-      <div className="absolute inset-y-0 left-0 right-0 max-w-[1280px] mx-auto hidden md:flex justify-between items-center z-20 pointer-events-none px-6">
+      {/* <div className="flex justify-center  gap-6 mt-6 md:block">
           
-        {/* Previous Button (Left) */}
         <Button
           onClick={slideToPrev}
           className={cn(
@@ -514,7 +513,6 @@ export default function TestimonialCarousel() {
           <ChevronLeft className={cn("w-6 h-6", ARROW_COLOR)} />
         </Button>
         
-        {/* Next Button (Right) */}
         <Button
           onClick={slideToNext}
           className={cn(
@@ -525,7 +523,7 @@ export default function TestimonialCarousel() {
         >
           <ChevronRight className={cn("w-6 h-6", ARROW_COLOR)} />
         </Button>
-      </div>
+      </div> */}
 
       {/* Mobile Arrows (Below content on small screens) */}
       <div className="flex justify-center gap-6 mt-6 md:hidden">
@@ -547,7 +545,7 @@ export default function TestimonialCarousel() {
 
 
       {/* Red bottom border */}
-      <div className={` absolute inset-x-0 bottom-0 h-1 ${RED_BORDER_COLOR} `}></div>
+      {/* <div className={` absolute inset-x-0 bottom-0 h-1 ${RED_BORDER_COLOR} `}></div> */}
     </div>
   );
 }

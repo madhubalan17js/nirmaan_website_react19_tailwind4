@@ -1,14 +1,597 @@
+// import React from 'react';
+// import { Button } from '../ui/button';
+// import { cn } from '@/lib/utils';
+// import ResizableImage from '../ResizableImage';
+// import RotatingHighlight from './RotatingHighlight';
+// import { Hero_Image, Home_Placeholder,
+//   //What we Offer Images
+//   Fire_Fighting, Data_and_Networking, Fa_and_Pa_System, Surveillance_Sysytem, Hvac, Electrical_Work
+//   //What we Offer Mobile Images
+//   ,Fire_Fighting_Mobile, Data_and_Networking_Mobile, Fa_and_Pa_System_Mobile, Surveillance_Sysytem_Mobile, Hvac_Mobile, Electrical_Work_Mobile } from '../images';
+
+// // ==========================================================
+// // CONSTANTS (Data Definitions)
+// // ==========================================================
+
+//   const SECTION_BG_COLOR = '#f3f7f8';
+// const HEADER_TEXT_COLOR = 'text-black';
+// const ACCENT_COLOR = 'text-destructive'; 
+
+// // Data for the Service Cards
+// const offerData = [
+//   {
+//     title: 'Electrical Work',
+//     description: 'Complete electrical setup and maintenance for safe, efficient power.',
+//     imageSrc: Electrical_Work,
+//     mobileSrc: Electrical_Work_Mobile,
+//   },
+//   {
+//     title: 'HVAC System',
+//     description: 'Reliable heating, cooling, and ventilation for year-round comfort.',
+//     imageSrc: Hvac,
+//     mobileSrc: Hvac_Mobile,
+//   },
+//   {
+//     title: 'FA & PA System',
+//     description: 'Fire alarm and telecom setups for safety and communication.',
+//     imageSrc: Fa_and_Pa_System,
+//     mobileSrc: Fa_and_Pa_System_Mobile,
+//   },
+//   {
+//     title: 'Security System',
+//     description: 'Advanced surveillance and alarm systems to protect your space.',
+//     imageSrc: Surveillance_Sysytem,
+//     mobileSrc: Surveillance_Sysytem_Mobile,
+//   },
+//   {
+//     title: 'Data & Networking',
+//     description: 'High-speed networking and structured cabling for seamless connectivity.',
+//     imageSrc: Data_and_Networking,
+//     mobileSrc: Data_and_Networking_Mobile,
+//   },
+//   {
+//     title: 'Fire Fighting',
+//     description: 'Smart firefighting solutions ensuring quick, reliable emergency response.',
+//     imageSrc: Fire_Fighting,
+//     mobileSrc: Fire_Fighting_Mobile,
+//   },
+// ];
+
+
+// // ==========================================================
+// // 1. OfferCard COMPONENT (Inner Component)
+// // ==========================================================
+
+
+// interface MobileOfferCardProps {
+//   imageSrc: string;
+//   title: string;
+//   description: string;
+// }
+
+// const MobileOfferCard: React.FC<MobileOfferCardProps> = ({
+//   imageSrc,
+//   title,
+//   description,
+// }) => {
+//   return (
+//     // Card Container: Hide on LG, Show on all others (mobile first)
+//     <div 
+//       className="relative h-[106px] w-[335px]  overflow-hidden md:hidden"
+      
+//     >
+//       {/* 1. Background Image */}
+//       <ResizableImage
+//         src={imageSrc}
+//         alt={title}
+//         className="absolute inset-0 w-full h-full object-cover"
+//         fit="cover"
+//         lazyLoad={true}
+//       />
+      
+//       {/* 2. Text Overlay and Gradient Mask (The key to the mobile look) */}
+//       <div 
+//         className="absolute w-50 p-6 flex flex-col  justify-start lg:justify-between"
+//         // Use a dark, high-contrast gradient on the left for text readability
+       
+//       >
+        
+//         {/* <div className="text-white">
+//           <h3 className="text-lg font-bold leading-tight mb-2">
+//             {title}
+//           </h3>
+//         </div> */}
+        
+//         {/* Description: Sits immediately below the title */}
+//         {/* <div className="text-white">
+//           <p className="text-sm font-medium">
+//             {description}
+//           </p>
+//         </div> */}
+
+//       </div>
+//     </div>
+//   );
+// };
+
+
+// interface OfferCardProps {
+//   imageSrc: string;
+//   title: string;
+//   description: string;
+//   className?: string;
+// }
+
+
+// const OfferCard: React.FC<OfferCardProps> = ({
+//   imageSrc,
+//   title,
+//   description,
+//   className
+// }) => {
+//   return (
+//     // Card Container: Relative to hold absolute image/overlay
+//     <div 
+//       className={cn(
+//         'relative h-42 md:h-80 lg:h-98 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.01]',
+//         className
+//       )}
+//     >
+//       {/* 1. Background Image */}
+//       <ResizableImage
+//         src={imageSrc}
+//         alt={title}
+//         className="absolute inset-0 w-full h-full object-fill"
+//         fit="cover"
+//         lazyLoad={true}
+//       />
+      
+//       {/* 2. Text Overlay and Gradient Mask */}
+//       {/* FIX: Use flex-col and justify-between on the overlay to split content to top/bottom */}
+//       <div 
+//         className="absolute inset-0 p-6 flex flex-col justify-start lg:justify-between" // x
+//       >
+        
+//         {/* TOP: Title Block (Pushed to the start/top) */}
+//         {/* <div className="text-blackN">
+//           <h3 className="text-xl lg:text-2xl font-bold leading-tight">
+//             {title}
+//           </h3>
+//         </div> */}
+        
+//         {/* BOTTOM: Description Block (Pushed to the end/bottom) */}
+//         {/* <div className="text-white">
+//           <p className="text-sm lg:text-base font-medium">
+//             {description}
+//           </p>
+//         </div> */}
+
+//       </div>
+//     </div>
+//   );
+// };
+
+// // ==========================================================
+// // 2. WhatWeOfferSection COMPONENT (Main container)
+// // ==========================================================
+
+// const WhatWeOfferSection: React.FC = () => {
+
+//   return (
+//     <section className={cn('w-full py-16', SECTION_BG_COLOR)}>
+//       <div className="mx-auto max-w-[1280px] px-6">
+        
+//         {/* === TOP HEADER BLOCK === */}
+//         <div className="mb-12 flex flex-col items-start justify-between lg:flex-row lg:items-center">
+          
+//           {/* Headline and Description */}
+//           <div className="w-full lg:w-3/4">
+//             <p className='text-grayN text-3xl lg:text-5xl font-normal'>
+//               What We
+             
+//               <RotatingHighlight text="Offer ?"/>
+              
+//             </p>
+//             <p className={cn('text-blackN mt-4 text-lg max-w-2xl', HEADER_TEXT_COLOR)}>
+//               We provide a comprehensive range of services for all your MEP needs.
+//             </p>
+//           </div>
+          
+//           {/* Learn More Button */}
+//           <div className="mt-8 lg:mt-0 flex w-full lg:w-1/4 justify-start lg:justify-end">
+//             <Button variant="destructive" size="lg" className="px-8 py-3 text-lg font-bold">
+//               Learn More
+//             </Button>
+//           </div>
+//         </div>
+
+//          {/* ======================================================= */}
+//         {/* FIX: MOBILE STACK (Show on < LG, Stack Vertically)    */}
+//         {/* ======================================================= */}
+//         <div className="grid grid-cols-1 gap-6 mb-12 lg:hidden">
+//           {offerData.map((offer, index) => (
+//             <MobileOfferCard
+//               key={index}
+//               imageSrc={offer.mobileSrc}
+//               title={offer.title}
+//               description={offer.description}
+//             />
+//           ))}
+//         </div>
+
+
+
+//         {/* === OFFER CARDS GRID / MOBILE STACK (70/30 Split) === */}
+//         {/* FIX: Set a 10-column base grid for the 70/30 split on LG and up */}
+//         <div className="hidden md:grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-10 lg:gap-8">
+//           {offerData.map((offer, index) => {
+            
+//             // Logic for 70% (index 0, 2, 4...) and 30% (index 1, 3, 5...) split on large screens
+         
+
+//             const colSpanClasses = cn(
+//                 // Mobile/Tablet: Still span full width (col-span-2 on md)
+//                 'md:col-span-2', 
+
+//                 // Desktop (LG and up) Split:
+//                 index===0 || index===3 || index===4 ? 'lg:col-span-6' : 'lg:col-span-4'
+//             );
+
+//             return (
+//               <OfferCard
+//                 key={index}
+//                 imageSrc={offer.imageSrc}
+//                 title={offer.title}
+//                 description={offer.description}
+//                 // Apply the responsive col-span classes
+//                 className={colSpanClasses}
+//               />
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default WhatWeOfferSection;
+
+
+
+
+
+// import React from 'react';
+// import { Button } from '../ui/button';
+// import { cn } from '@/lib/utils';
+// import ResizableImage from '../ResizableImage';
+// import RotatingHighlight from './RotatingHighlight';
+// import { Hero_Image, Home_Placeholder,
+//   //What we Offer Images
+//   Fire_Fighting, Data_and_Networking, Fa_and_Pa_System, Surveillance_Sysytem, Hvac, Electrical_Work
+//   //What we Offer Mobile Images
+//   ,Fire_Fighting_Mobile, Data_and_Networking_Mobile, Fa_and_Pa_System_Mobile, Surveillance_Sysytem_Mobile, Hvac_Mobile, Electrical_Work_Mobile } from '../images';
+
+// // ==========================================================
+// // CONSTANTS (Data Definitions)
+// // ==========================================================
+// // const ElectricalCard = () => {
+// //   return (
+// //     <div className="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-sm">
+
+// //       {/* Background Image */}
+// //       {/* <img
+// //         src={Electrical_Work2}
+// //         alt="Electrical Work"
+// //         className="w-full h-full object-cover"
+// //       /> */}
+// //         {/* 1. Background Image */}
+// //       <ResizableImage
+// //         src={Electrical_Work2}
+// //         alt="Electrical Work"
+// //         className=" inset w-full h-full object-cover"
+// //         fit="cover"
+// //         lazyLoad={true}
+// //       />
+
+// //       {/* Dot Pattern – CUT OUT CENTER */}
+// //       <div
+// //         className="
+// //           absolute inset-0 pointer-events-none
+// //         "
+// //         style={{
+// //           WebkitMaskImage:
+// //             "radial-gradient(circle at center, transparent 40%, black 70%)",
+// //           maskImage:
+// //             "radial-gradient(circle at center, transparent 40%, black 70%)",
+// //         }}
+// //       >
+// //         <img
+// //           src={Layers.dot}
+// //           className="w-full h-full object-cover opacity-35"
+// //           alt=""
+// //         />
+// //       </div>
+
+// //       {/* Soft Fog */}
+// //       <div
+// //         className="absolute inset-0 pointer-events-none"
+// //         style={{
+// //           background:
+// //             "radial-gradient(circle at center, rgba(255,255,255,0) 40%, rgba(255,255,255,0.8) 100%)",
+// //         }}
+// //       />
+
+// //       {/* Content */}
+// //       <div className="absolute top-10 left-10 text-gray-900 max-w-md mix-blend-normal">
+// //         <h2 className="text-2xl font-semibold mb-4">Electrical Work</h2>
+// //         <p className="text-lg opacity-90 leading-snug">
+// //           Complete electrical setup and maintenance for safe, efficient power.
+// //         </p>
+// //       </div>
+// //     </div>
+// //   );
+// // };
+
+// const SECTION_BG_COLOR = '#f3f7f8';
+// const HEADER_TEXT_COLOR = 'text-black';
+// const ACCENT_COLOR = 'text-destructive'; 
+
+// // Data for the Service Cards
+// const offerData = [
+//   {
+//     title: 'Electrical Work',
+//     description: 'Complete electrical setup and maintenance for safe, efficient power.',
+//     imageSrc: Electrical_Work,
+//     mobileSrc: Electrical_Work_Mobile,
+//   },
+//   {
+//     title: 'HVAC System',
+//     description: 'Reliable heating, cooling, and ventilation for year-round comfort.',
+//     imageSrc: Hvac,
+//     mobileSrc: Hvac_Mobile,
+//   },
+//   {
+//     title: 'FA & PA System',
+//     description: 'Fire alarm and telecom setups for safety and communication.',
+//     imageSrc: Fa_and_Pa_System,
+//     mobileSrc: Fa_and_Pa_System_Mobile,
+//   },
+//   {
+//     title: 'Security System',
+//     description: 'Advanced surveillance and alarm systems to protect your space.',
+//     imageSrc: Surveillance_Sysytem,
+//     mobileSrc: Surveillance_Sysytem_Mobile,
+//   },
+//   {
+//     title: 'Data & Networking',
+//     description: 'High-speed networking and structured cabling for seamless connectivity.',
+//     imageSrc: Data_and_Networking,
+//     mobileSrc: Data_and_Networking_Mobile,
+//   },
+//   {
+//     title: 'Fire Fighting',
+//     description: 'Smart firefighting solutions ensuring quick, reliable emergency response.',
+//     imageSrc: Fire_Fighting,
+//     mobileSrc: Fire_Fighting_Mobile,
+//   },
+// ];
+
+
+// // ==========================================================
+// // 1. OfferCard COMPONENT (Inner Component)
+// // ==========================================================
+
+
+// interface MobileOfferCardProps {
+//   imageSrc: string;
+//   title: string;
+//   description: string;
+// }
+
+// const MobileOfferCard: React.FC<MobileOfferCardProps> = ({
+//   imageSrc,
+//   title,
+//   description,
+// }) => {
+//   return (
+//     // Card Container: Hide on LG, Show on all others (mobile first)
+//     <div 
+//       className="relative h-[120px] w-auto  overflow-hidden md:hidden"
+      
+//     >
+//       {/* 1. Background Image */}
+//       <ResizableImage
+//         src={imageSrc}
+//         alt={title}
+//         className="absolute inset-0 w-full h-full object-cover"
+//         fit="cover"
+//         lazyLoad={true}
+//       />
+      
+//       {/* 2. Text Overlay and Gradient Mask (The key to the mobile look) */}
+//       <div 
+//         className="absolute w-50 p-4 flex flex-col items-start justify-start lg:justify-between"
+//         // Use a dark, high-contrast gradient on the left for text readability
+       
+//       >
+        
+//         <div className="">
+//           <h3 className="text-lg font-bold leading-tight mb-2">
+//             {title}
+//           </h3>
+//         </div>
+        
+//         {/* Description: Sits immediately below the title */}
+//         <div className="">
+//           <p className="text-xs font-medium">
+//             {description}
+//           </p>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// };
+
+
+// interface OfferCardProps {
+//   imageSrc: string;
+//   title: string;
+//   description: string;
+//   className?: string;
+// }
+
+
+// const OfferCard: React.FC<OfferCardProps> = ({
+//   imageSrc,
+//   title,
+//   description,
+//   className
+// }) => {
+//   return (
+//     // Card Container: Relative to hold absolute image/overlay
+//     <div 
+//       className={cn(
+//         'relative h-42 md:h-80 lg:h-98 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.01]',
+//         className
+//       )}
+//     >
+//       {/* 1. Background Image */}
+//       <ResizableImage
+//         src={imageSrc}
+//         alt={title}
+//         className="absolute inset-0 w-full h-full object-fill"
+//         fit="cover"
+//         lazyLoad={true}
+//       />
+      
+//       {/* 2. Text Overlay and Gradient Mask */}
+//       {/* FIX: Use flex-col and justify-between on the overlay to split content to top/bottom */}
+//       <div 
+//         className="absolute inset-0 p-6 flex flex-col justify-start lg:justify-between text-blackN" // x
+//       >
+        
+//         {/* TOP: Title Block (Pushed to the start/top) */}
+//         <div className="text-blackN">
+//           <h3 className="text-xl lg:text-2xl font-bold leading-tight">
+//             {title}
+//           </h3>
+//         </div>
+        
+//         {/* BOTTOM: Description Block (Pushed to the end/bottom) */}
+//         <div className="">
+//           <p className="text-xs lg:text-base font-medium">
+//             {description}
+//           </p>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// };
+
+// // ==========================================================
+// // 2. WhatWeOfferSection COMPONENT (Main container)
+// // ==========================================================
+
+// const WhatWeOfferSection: React.FC = () => {
+
+//   return (
+//     <section className={cn('w-full py-16', SECTION_BG_COLOR)}>
+//       <div className="mx-auto max-w-[1280px] px-6">
+        
+//         {/* === TOP HEADER BLOCK === */}
+//         <div className="mb-12 flex flex-col items-start justify-between lg:flex-row lg:items-center">
+          
+//           {/* Headline and Description */}
+//           <div className="w-full lg:w-3/4">
+//             <p className='text-grayN text-3xl lg:text-5xl font-normal'>
+//               What We
+             
+//               <RotatingHighlight text="Offer ?"/>
+              
+//             </p>
+//             <p className={cn('text-blackN mt-4 text-lg max-w-2xl', HEADER_TEXT_COLOR)}>
+//               We provide a comprehensive range of services for all your MEP needs.
+//             </p>
+//           </div>
+          
+//           {/* Learn More Button */}
+//           <div className="mt-8 lg:mt-0 flex w-full lg:w-1/4 justify-start lg:justify-end">
+//             <Button variant="destructive" size="lg" className="px-8 py-3 text-lg font-bold">
+//               Learn More
+//             </Button>
+//           </div>
+//         </div>
+
+//          {/* ======================================================= */}
+//         {/* FIX: MOBILE STACK (Show on < LG, Stack Vertically)    */}
+//         {/* ======================================================= */}
+//         <div className="grid grid-cols-1 gap-6 mb-12 lg:hidden">
+//           {offerData.map((offer, index) => (
+//             <MobileOfferCard
+//               key={index}
+//               imageSrc={offer.mobileSrc}
+//               title={offer.title}
+//               description={offer.description}
+//             />
+//           ))}
+//         </div>
+
+
+
+//         {/* === OFFER CARDS GRID / MOBILE STACK (70/30 Split) === */}
+//         {/* FIX: Set a 10-column base grid for the 70/30 split on LG and up */}
+//         <div className="hidden md:grid  gap-6 md:grid-cols-2 lg:grid-cols-10 lg:gap-8">
+//           {offerData.map((offer, index) => {
+            
+//             // Logic for 70% (index 0, 2, 4...) and 30% (index 1, 3, 5...) split on large screens
+         
+
+//             const colSpanClasses = cn(
+//                 // Mobile/Tablet: Still span full width (col-span-2 on md)
+//                 'md:col-span-2', 
+
+//                 // Desktop (LG and up) Split:
+//                 index===0 || index===3 || index===4 ? 'lg:col-span-6' : 'lg:col-span-4'
+//             );
+
+//             return (
+//               <OfferCard
+//                 key={index}
+//                 imageSrc={offer.imageSrc}
+//                 title={offer.title}
+//                 description={offer.description}
+//                 // Apply the responsive col-span classes
+//                 className={colSpanClasses}
+//               />
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default WhatWeOfferSection;
+
+
+
 import React from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import ResizableImage from '../ResizableImage';
 import RotatingHighlight from './RotatingHighlight';
+import { Hero_Image, Home_Placeholder,
+  //What we Offer Images
+  Fire_Fighting, Data_and_Networking, Fa_and_Pa_System, Surveillance_Sysytem, Hvac, Electrical_Work
+  //What we Offer Mobile Images
+  ,Fire_Fighting_Mobile, Data_and_Networking_Mobile, Fa_and_Pa_System_Mobile, Surveillance_Sysytem_Mobile, Hvac_Mobile, Electrical_Work_Mobile } from '../images';
 
 // ==========================================================
 // CONSTANTS (Data Definitions)
 // ==========================================================
-
-  const SECTION_BG_COLOR = '#f3f7f8';
+const SECTION_BG_COLOR = '#f3f7f8';
 const HEADER_TEXT_COLOR = 'text-black';
 const ACCENT_COLOR = 'text-destructive'; 
 
@@ -16,33 +599,39 @@ const ACCENT_COLOR = 'text-destructive';
 const offerData = [
   {
     title: 'Electrical Work',
-    description: 'Complete electrical setup and maintenance for safe, efficient power.',
-    imageSrc: 'electrical-work.jpg', // Replace with actual import
+    description: 'Complete electrical setup and  maintenance for safe, efficient power.',
+      imageSrc: Electrical_Work,
+      mobileSrc: Electrical_Work_Mobile,
   },
   {
     title: 'HVAC System',
     description: 'Reliable heating, cooling, and ventilation for year-round comfort.',
-    imageSrc: 'hvac-system.jpg', // Replace with actual import
+    imageSrc: Hvac,
+    mobileSrc: Hvac_Mobile,
   },
   {
     title: 'FA & PA System',
     description: 'Fire alarm and telecom setups for safety and communication.',
-    imageSrc: 'fa-pa-system.jpg', // Replace with actual import
+    imageSrc: Fa_and_Pa_System,
+    mobileSrc: Fa_and_Pa_System_Mobile,
   },
   {
     title: 'Security System',
     description: 'Advanced surveillance and alarm systems to protect your space.',
-    imageSrc: 'security-system.jpg', // Replace with actual import
+    imageSrc: Surveillance_Sysytem,
+    mobileSrc: Surveillance_Sysytem_Mobile,
   },
   {
     title: 'Data & Networking',
     description: 'High-speed networking and structured cabling for seamless connectivity.',
-    imageSrc: 'data-networking.jpg', // Replace with actual import
+    imageSrc: Data_and_Networking,
+    mobileSrc: Data_and_Networking_Mobile,
   },
   {
     title: 'Fire Fighting',
     description: 'Smart firefighting solutions ensuring quick, reliable emergency response.',
-    imageSrc: 'fire-fighting.jpg', // Replace with actual import
+    imageSrc: Fire_Fighting,
+    mobileSrc: Fire_Fighting_Mobile,
   },
 ];
 
@@ -56,20 +645,20 @@ interface MobileOfferCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  textColorClass?: string; // NEW PROP
 }
 
 const MobileOfferCard: React.FC<MobileOfferCardProps> = ({
   imageSrc,
   title,
   description,
+  textColorClass = 'text-blackN', // Default to black for safety
 }) => {
   return (
     // Card Container: Hide on LG, Show on all others (mobile first)
     <div 
-      className="relative h-52 rounded-xl overflow-hidden shadow-2xl lg:hidden"
-       style={{
-          background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%)'
-        }}
+      className="relative h-[120px] w-auto rounded-xl overflow-hidden md:hidden"
+      
     >
       {/* 1. Background Image */}
       <ResizableImage
@@ -82,21 +671,21 @@ const MobileOfferCard: React.FC<MobileOfferCardProps> = ({
       
       {/* 2. Text Overlay and Gradient Mask (The key to the mobile look) */}
       <div 
-        className="absolute inset-0 w-50 p-6 flex flex-col  justify-start"
-        // Use a dark, high-contrast gradient on the left for text readability
-       
+        className={cn(
+          "absolute w-50 p-4 flex flex-col items-start justify-start lg:justify-between",
+          textColorClass // Apply the textColorClass here
+        )}
       >
         
-        <div className="text-white">
-          {/* Title: Dominant size for mobile */}
-          <h3 className="text-lg font-bold leading-tight mb-2">
+        <div className="">
+          <h5 className="text-lg font-bold leading-tight mb-2">
             {title}
-          </h3>
+          </h5>
         </div>
         
         {/* Description: Sits immediately below the title */}
-        <div className="text-white">
-          <p className="text-sm font-medium">
+        <div className="">
+          <p className="text-xs">
             {description}
           </p>
         </div>
@@ -112,6 +701,7 @@ interface OfferCardProps {
   title: string;
   description: string;
   className?: string;
+  textColorClass?: string; // NEW PROP
 }
 
 
@@ -119,13 +709,14 @@ const OfferCard: React.FC<OfferCardProps> = ({
   imageSrc,
   title,
   description,
-  className
+  className,
+  textColorClass = 'text-blackN', // Default to black for safety
 }) => {
   return (
     // Card Container: Relative to hold absolute image/overlay
     <div 
       className={cn(
-        'relative h-42 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.01]',
+        'relative h-42 md:h-80 lg:h-98 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.01]',
         className
       )}
     >
@@ -133,31 +724,29 @@ const OfferCard: React.FC<OfferCardProps> = ({
       <ResizableImage
         src={imageSrc}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-fill"
         fit="cover"
         lazyLoad={true}
       />
       
       {/* 2. Text Overlay and Gradient Mask */}
-      {/* FIX: Use flex-col and justify-between on the overlay to split content to top/bottom */}
       <div 
-        className="absolute inset-0 p-6 flex flex-col justify-start lg:justify-between" // <-- FIX: justify-between
-        style={{
-          // Use a full-area gradient to ensure contrast for both top and bottom text
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%)'
-        }}
+        className={cn(
+          "absolute inset-0 w-[300px] p-6 flex flex-col md:justify-between  lg:justify-between",
+          textColorClass // Apply the textColorClass here
+        )}
       >
         
         {/* TOP: Title Block (Pushed to the start/top) */}
-        <div className="text-white">
+        <div className="">
           <h3 className="text-xl lg:text-2xl font-bold leading-tight">
             {title}
           </h3>
         </div>
         
         {/* BOTTOM: Description Block (Pushed to the end/bottom) */}
-        <div className="text-white">
-          <p className="text-sm lg:text-base font-medium">
+        <div className="">
+          <p className="text-md lg:text-base font-medium">
             {description}
           </p>
         </div>
@@ -194,7 +783,7 @@ const WhatWeOfferSection: React.FC = () => {
           </div>
           
           {/* Learn More Button */}
-          <div className="mt-8 lg:mt-0 flex w-full lg:w-1/4 justify-start lg:justify-end">
+          <div className="mt-4 lg:mt-0 flex w-full lg:w-1/4 justify-start lg:justify-end">
             <Button variant="destructive" size="lg" className="px-8 py-3 text-lg font-bold">
               Learn More
             </Button>
@@ -205,33 +794,40 @@ const WhatWeOfferSection: React.FC = () => {
         {/* FIX: MOBILE STACK (Show on < LG, Stack Vertically)    */}
         {/* ======================================================= */}
         <div className="grid grid-cols-1 gap-6 mb-12 lg:hidden">
-          {offerData.map((offer, index) => (
-            <MobileOfferCard
-              key={index}
-              imageSrc={offer.imageSrc}
-              title={offer.title}
-              description={offer.description}
-            />
-          ))}
+          {offerData.map((offer, index) => {
+            const isWhiteTextMobile = offer.title === 'Security System' || offer.title === 'FA & PA System';
+            const mobileTextColorClass = isWhiteTextMobile ? 'text-white' : 'text-blackN';
+            
+            return (
+              <MobileOfferCard
+                key={index}
+                imageSrc={offer.mobileSrc}
+                title={offer.title}
+                description={offer.description}
+                textColorClass={mobileTextColorClass} // Pass the determined class
+              />
+            );
+          })}
         </div>
 
 
 
         {/* === OFFER CARDS GRID / MOBILE STACK (70/30 Split) === */}
         {/* FIX: Set a 10-column base grid for the 70/30 split on LG and up */}
-        <div className="hidden lg:grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-10 lg:gap-8">
+        <div className="hidden md:grid  gap-6 md:grid-cols-4 lg:grid-cols-10 lg:gap-8">
           {offerData.map((offer, index) => {
             
             // Logic for 70% (index 0, 2, 4...) and 30% (index 1, 3, 5...) split on large screens
-         
-
             const colSpanClasses = cn(
                 // Mobile/Tablet: Still span full width (col-span-2 on md)
                 'md:col-span-2', 
-
                 // Desktop (LG and up) Split:
                 index===0 || index===3 || index===4 ? 'lg:col-span-6' : 'lg:col-span-4'
             );
+
+            // Determine text color for desktop view
+            const isWhiteTextDesktop = offer.title === 'Security System';
+            const desktopTextColorClass = isWhiteTextDesktop ? 'text-white' : 'text-blackN';
 
             return (
               <OfferCard
@@ -241,6 +837,7 @@ const WhatWeOfferSection: React.FC = () => {
                 description={offer.description}
                 // Apply the responsive col-span classes
                 className={colSpanClasses}
+                textColorClass={desktopTextColorClass} // Pass the determined class
               />
             );
           })}
