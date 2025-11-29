@@ -7,6 +7,7 @@ import Hard_HAT_CAP from '../assets/hardhat-cap.png';
 import HArdHAT_CAPSTICKER from '../assets/hardhat-cap_wipe_bg.png';
 import ResizableImage from './ResizableImage';
 import RotatingHighlight from './common/RotatingHighlight';
+import {Footer_Logo_N } from "./images"
 
 // ==========================================================
 // CONSTANTS (Centralized Definitions)
@@ -163,55 +164,57 @@ const DesktopFooterLayout: React.FC = () => (
             3. BOTTOM SECTION: Logo and Copyright/Policies
             ================================================================
         */}
+        <div className="w-full py-10 text-center">
+           <div className="mx-auto max-w-[1280px] px-6">
 
-
-    <div className="w-full py-10 text-center">
-      <div className="mx-auto max-w-[1280px] px-6">
-
-        {/* Overall Container (relative to center everything) */}
+        {/* Overall Container - Set as a flex column to stack content */}
         <div className="relative flex flex-col items-center justify-center">
 
-          {/* 
-        NEW: Logo and Tagline Wrapper 
-        - This is the new relative context for the tagline
-      */}
-          <div className="relative inline-flex items-center justify-center">
+            {/* Logo and Tagline Wrapper - The RELATIVE parent for the tagline */}
+            {/* The 'inline-flex' makes this wrapper only as wide as its content (logo/text) */}
+            <div className="relative inline-flex items-center">
+                
+                {/* Logo Icon (Left Side) - Make sure 'Footer_Logo_N' is defined and points to the red 'N' image */}
+                <div className="hidden sm:block h-55 mr-2">
+                    {/* Assuming Footer_Logo_N is the imported image variable */}
+                    <img src={Footer_Logo_N} alt="Nirmaan Logo" className="h-full w-auto object-contain" />
+                </div>
 
-            {/* Logo Icon (Left Side) */}
-            <div className="hidden sm:block">
-              <img src={LOGO} alt="Nirmaan Logo" className="h-30 w-30 lg:h-40 lg:w-40 xl:h-80 xl:w-80 object-contain" />
+                {/* Nirmaan Text (The large, dominant element) */}
+                <span className="font-extrabold ml-6 text-[4rem] sm:text-[6rem] lg:text-[14rem] xl:text-[13rem] leading-none text-destructive">
+                    Nirmaan
+                </span>
+
+                {/* Tagline - ABSOLUTE Positioning */}
+                <p
+                    className="text-2xl font-medium text-destructive text-right 
+                               absolute
+                               right-0                     /* Aligns to the right edge of the text/logo block */
+                               bottom-2/3                  /* Pushes it up (e.g., to 66% of parent height) */
+                               transform -translate-y-1/2  /* Fine-tune vertical center for better alignment */
+                               sm:bottom-3/4               /* Adjust for larger screens */
+                               lg:bottom-[70%]"            /* Fine-tune for large screens to match the image */
+                >
+                    Making Construction Easier
+                </p>
             </div>
 
-            {/* Nirmaan Text (The large, dominant element) */}
-            <span className="font-extrabold text-[4rem] sm:text-[6rem] lg:text-[14rem] xl:text-[13rem] leading-none text-destructive">
-              Nirmaan
-            </span>
-
-            {/* Tagline - ABSOLUTE Positioning FIX */}
-            <p
-              // This must now be absolute relative to its new parent 'inline-flex' div
-              className="text-2xl font-medium text-destructive text-center 
-                     absolute
-                     right-5                     /* Aligns to the right edge of the text/logo block */
-                     bottom-[70%]                /* Pushes it up to sit above the text */
-                     lg:text-right 
-                     lg:mt-0"
-            >
-              Making Construction Easier
-            </p>
-          </div>
-
-          {/* Copyright and Policies (Aligned Center) */}
-          <div className="mt-0 flex flex-col items-center space-y-2 font-semibold ">
-            <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-8 text-base font-medium">
-              <Link to="/terms" className="hover:opacity-80 underline underline-offset-4 text-destructive">Terms & Conditions</Link>
-              <p className="text-gray-600 font-normal">© 2025 Nirmaan. All rights reserved</p>
-              <Link to="/cancellation" className="hover:opacity-80 underline underline-offset-4 text-destructive">Cancellation Policy</Link>
+            {/* Copyright and Policies (Aligned Center) */}
+            <div className="mt-8 flex flex-col items-center space-y-2 font-semibold ">
+                <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-8 text-base font-medium">
+                    <Link to="/terms" className="hover:opacity-80 underline underline-offset-4 text-destructive">Terms & Conditions</Link>
+                    <p className="text-gray-600 font-normal">© 2025 Nirmaan. All rights reserved</p>
+                    <Link to="/cancellation" className="hover:opacity-80 underline underline-offset-4 text-destructive">Cancellation Policy</Link>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
+
+
+    
+
+
   </div>
 );
 
@@ -405,7 +408,7 @@ const Footer: React.FC = () => {
       {/* ========================================================== */}
       {/* 2. DESKTOP LAYOUT (Hidden by default, shown on lg)         */}
       {/* ========================================================== */}
-      <div className="hidden lg:block">
+      <div className="hidden md:block">
         <DesktopFooterLayout />
       </div>
     </footer>

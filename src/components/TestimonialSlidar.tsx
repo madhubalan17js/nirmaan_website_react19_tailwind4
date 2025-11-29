@@ -317,14 +317,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import ResizableImage from './ResizableImage';
 import { Button } from './ui/button';
 
-// 1. Import Swiper components and modules
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
+
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
+import test from "../assets/Social Icon/Tech.png"
+import BetaMaker from '../assets/Social Icon/Beta Makers.png';
 // 2. Import Swiper styles (Crucial for arrows and dots)
+// 
 // import 'swiper/css';
 // import 'swiper/css/navigation';
 // import 'swiper/css/pagination';
+
 
 interface Testimonial {
   id: number;
@@ -340,41 +345,41 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     company: "Beta Makers Lab",
-    logo: "/logos/beta-makers-lab-logo.jpg",
+    logo: BetaMaker,
     quote:
       "Nirmaan's MEP contracting services, combined with their planning technology, have allowed us to complete our MEP projects on time and within budget. They are a game-changer in the industry!",
     author: "Mayank Bhandari",
     title: "Principal Architect, Beta Maker Lab",
-    image: "/avatars/mayank-bhandari-profile.jpg",
+    image: test,
   },
   {
     id: 2,
     company: "Tech Innovations",
-    logo: "/logos/tech-innovations-logo.jpg",
+    logo: BetaMaker,
     quote:
       "Outstanding service and exceptional attention to detail. Nirmaan transformed our project delivery process completely.",
     author: "Rajesh Kumar",
     title: "Project Director, Tech Innovations",
-    image: "/avatars/rajesh-kumar-profile.jpg",
+    image: test,
   },
   {
     id: 3,
     company: "Global Builders",
-    logo: "/logos/global-builders-logo.jpg",
+    logo: BetaMaker,
     quote:
       "The expertise and professionalism demonstrated by Nirmaan exceeded all our expectations. Highly recommended!",
     author: "Priya Sharma",
     title: "CEO, Global Builders",
-    image: "/avatars/priya-sharma-profile.jpg",
+    image: test,
   },
   {
     id: 4,
     company: "Construction Plus",
-    logo: "/logos/construction-plus-logo.jpg",
+    logo: BetaMaker,
     quote: "Working with Nirmaan has been a transformative experience. Their innovative approach sets them apart.",
     author: "Vikram Singh",
     title: "Operations Head, Construction Plus",
-    image: "/avatars/vikram-singh-profile.jpg",
+    image: test,
   },
 ];
 
@@ -383,7 +388,8 @@ const RED_BORDER_COLOR = 'bg-destructive';
 
 export default function TestimonialCarousel() {
   // Use state to hold the Swiper instance for external control (optional, but useful)
-  const [swiper, setSwiper] = useState(null);
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
+
 
   // Note: Autoplay is now managed directly by Swiper's Autoplay module.
   // The logic for goToNext, goToPrevious, and goToSlide can be replaced by swiper.slideNext(), etc.
@@ -418,7 +424,8 @@ export default function TestimonialCarousel() {
           modules={[Navigation, Pagination, Autoplay]}
           
           // 4. Set Swiper instance to state
-          onSwiper={setSwiper} 
+       onSwiper={(swiperInstance) => setSwiper(swiperInstance)}
+
           
           // 5. Configuration
           slidesPerView={1}
@@ -427,10 +434,10 @@ export default function TestimonialCarousel() {
           speed={500} // Transition speed
           
           // 6. Navigation (Arrows)
-          // navigation={{
-          //   prevEl: `.${swiperPrevButtonClass}`,
-          //   nextEl: `.${swiperNextButtonClass}`,
-          // }}
+          navigation={{
+            prevEl: `.${swiperPrevButtonClass}`,
+            nextEl: `.${swiperNextButtonClass}`,
+          }}
           
           // 7. Pagination (Dots) - Customizing the class name
           pagination={{ 
@@ -451,16 +458,16 @@ export default function TestimonialCarousel() {
             <SwiperSlide key={current.id}>
               
               {/* Logo */}
-              <div className="flex justify-center mb-10">
-                <div className={`bg-gray-100 px-8 py-4 shadow-md`}> 
-                  <ResizableImage 
-                    src={current.logo || "/placeholder.svg"} 
-                    alt={current.company} 
-                    className="h-10 object-contain w-auto max-h-10" 
-                  />
-                </div>
-              </div>
-
+          <div className="flex justify-center mb-4 h-20 md:h-40">
+           
+            {/* The image is centered and sized */}
+            <ResizableImage 
+                src={current.logo} // Path to the uploaded banner image
+                alt={current.company} 
+                className="object-cover" 
+            />
+      
+        </div>
               {/* Testimonial Quote */}
               <div className="text-center mb-10 px-4">
                 <p className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed max-w-3xl mx-auto">
@@ -526,7 +533,7 @@ export default function TestimonialCarousel() {
       </div> */}
 
       {/* Mobile Arrows (Below content on small screens) */}
-      <div className="flex justify-center gap-6 mt-6 md:hidden">
+      {/* <div className="flex justify-center gap-6 mt-6 md:hidden">
           <Button
             onClick={slideToPrev}
             className="w-10 h-10 rounded-full border border-gray-300 bg-white shadow-md"
@@ -541,7 +548,7 @@ export default function TestimonialCarousel() {
           >
             <ChevronRight className={cn("w-5 h-5", ARROW_COLOR)} />
           </Button>
-      </div>
+      </div> */}
 
 
       {/* Red bottom border */}

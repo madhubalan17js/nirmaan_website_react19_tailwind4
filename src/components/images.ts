@@ -1,6 +1,6 @@
 import Hero_Image from '../assets/Mask group.png';
 import Home_Placeholder from '../assets/Placeholder Image.png';
-
+import Footer_Logo_N from "../assets/Logo/FooterLogoN.png"
 // WhatWeOfferSection Desktop Images
 import Fire_Fighting from '../assets/WeOffer/Fire Fighting.png';
 import Data_and_Networking from '../assets/WeOffer/Data and Networking.png';
@@ -86,10 +86,16 @@ import Office_Space_Mobile from '../assets/Industries/Office Space M.png';
 import Pharma_Labs_Mobile from '../assets/Industries/Pharma Labs M.png';
 import Industries_Mobile from '../assets/Industries/Industries M.png';
 
+//Industries Leadership Images LOGO 
+import Decathlon from '../assets/Industries Leader/Decathlon.png';
+import ATTIC from '../assets/Industries Leader/Attic Space.png';
+import Grant_Thornton from '../assets/Industries Leader/Grant Thronton.png';
 
+import Airbrick_Infra from '../assets/Industries Leader/Air Brick.png';
+import NinetyOne_Square_Feet from '../assets/Industries Leader/Square Feet.png';
 
 export { 
-  Hero_Image, Home_Placeholder,Black_Image,
+  Hero_Image, Home_Placeholder,Black_Image,Footer_Logo_N,
   //What we Offer Images
   Fire_Fighting, Data_and_Networking, Fa_and_Pa_System, Surveillance_Sysytem, Hvac, Electrical_Work
   //What we Offer Mobile Images
@@ -115,6 +121,9 @@ export {
   ,Data_Centers, Hospitality, Hospitals, Office_Space, Pharma_Labs, Industries,
   Data_Centers_Mobile, Hospitality_Mobile, Hospitals_Mobile, Office_Space_Mobile, Pharma_Labs_Mobile, Industries_Mobile
 
+
+  //Industries Leadership Logos
+  ,Decathlon, ATTIC, Grant_Thornton, Airbrick_Infra, NinetyOne_Square_Feet
 
 
 

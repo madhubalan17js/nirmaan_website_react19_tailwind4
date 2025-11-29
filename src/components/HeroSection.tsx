@@ -7,16 +7,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules'; // Autoplay and FreeMode are ideal for logo carousels
 
 // Import Swiper styles
-import 'swiper/css';
+
 // import 'swiper/css/free-mode'; // Optional, but can improve the feel of continuous movement
 
 import { Button } from './ui/button'; // Assuming Shadcn Button
 import ResizableImage from './ResizableImage'; // The reusable image component
-import{Hero_Image, Home_Placeholder} from './images';
+import{Hero_Image, Home_Placeholder,Decathlon, ATTIC, Grant_Thornton, Airbrick_Infra, NinetyOne_Square_Feet} from './images';
 // Assuming the image import from the new path
 // import Hero_Image from '../assets/Mask group.png';
 // import Home_Placeholder from '../assets/Placeholder Image.png';
 import RotatingHighlight from './common/RotatingHighlight';
+
 
 
 // Constants (ensure these match your theme/global constants)
@@ -25,15 +26,20 @@ const BRAND_RED_TEXT = 'text-destructive';
 const LIGHT_BG = '#f5f5f5'; // Light gray background of the section
 
 const partnerLogos = [
-  { src: 'decathlon.png', alt: 'Decathlon Logo' },
-  { src: 'attic.png', alt: 'ATTIC Logo' },
-  { src: 'grant-thornton.png', alt: 'Grant Thornton Logo' },
-  { src: 'airbrick.png', alt: 'AirBrick Infra Logo' },
-  { src: '91squarefeet.png', alt: '91 Square Feet Logo' },
+  { src: Decathlon, alt: 'Decathlon Logo' },
+  { src: ATTIC, alt: 'ATTIC Logo' },
+  { src: Grant_Thornton, alt: 'Grant Thornton Logo' },
+  { src: Airbrick_Infra, alt: 'AirBrick Infra Logo' },
+  { src: NinetyOne_Square_Feet, alt: '91 Square Feet Logo' },
   // Adding duplicates for a smoother, infinite loop effect
-  { src: 'decathlon.png', alt: 'Decathlon Logo' },
-  { src: 'attic.png', alt: 'ATTIC Logo' },
-  { src: 'grant-thornton.png', alt: 'Grant Thornton Logo' },
+  { src: Decathlon, alt: 'Decathlon Logo' },
+  { src: ATTIC, alt: 'ATTIC Logo' },
+  { src: Grant_Thornton, alt: 'Grant Thornton Logo' },
+  { src: Airbrick_Infra, alt: 'AirBrick Infra Logo' },
+  { src: NinetyOne_Square_Feet, alt: '91 Square Feet Logo' },
+  
+
+ 
 ];
 
 const HeroSection: React.FC = () => {
@@ -104,7 +110,25 @@ const HeroSection: React.FC = () => {
               className="object-cover"
             />
           </div>
-          <div className='relative'>
+          <div className='relative' 
+         style={{
+        // 1. Define the two gradient masks, separated by a comma
+        maskImage: `
+            linear-gradient(to top, black 80%, transparent 100%), 
+            linear-gradient(to left, black 95%, transparent 100%) 
+        `,
+        // 2. IMPORTANT: Tell the browser to combine the mask images (multiply their transparency)
+        maskComposite: 'intersect', 
+        
+        // 3. WebKit Prefixes for Safari/Older Browsers
+        WebkitMaskImage: `
+            linear-gradient(to top, black 80%, transparent 100%), 
+            linear-gradient(to right, black 90%, transparent 100%) 
+        `,
+        WebkitMaskComposite: 'source-in' 
+    }}
+        
+        >
             <ResizableImage src={Home_Placeholder} alt="Hero Background" className="w-full h-auto object-cover" />
           </div>
         </div>
@@ -143,13 +167,16 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Swiper Logos Container */}
-          <div className="w-full relative p-2"  style={{
+          <div className="w-full relative p-4 px-8"  style={{
             // Gradient from transparent on the left to a solid color on the right
             // This creates a mask on the right edge.
-            background: `linear-gradient(to right, 
-                rgb(195,215,226) 0%, /* Start fully transparent */
-                rgb(98,131,153) 100%    /* Fade to the light background color at the edge */
-            )`
+            background: `linear-gradient(to right, #F4EFEF, #ecd1d4)`,
+maskImage: `linear-gradient(to right, 
+        transparent 0%,      /* Left Edge: Start transparent (invisible) */
+        black 5%,            /* Transition to black (fully visible) */
+        black 95%,           /* Center: Stay black (fully visible) */
+        transparent 100%     /* Right Edge: Transition back to transparent (invisible) */
+    )`,
         }}>
              
             <Swiper
@@ -185,12 +212,12 @@ const HeroSection: React.FC = () => {
                 <SwiperSlide key={index}>
                   <div
                     // Simplified class structure for SwiperSlide content
-                    className="h-20 bg-white shadow-md rounded-lg flex items-center justify-center p-4"
+                    className=" bg-white shadow-md rounded-lg flex items-center justify-center "
                   >
                     <img
                       src={logo.src} // Placeholder for your image path
                       alt={logo.alt}
-                      className="w-full h-auto object-contain max-h-16"
+                      className=" h-auto object-cover max-h-16"
                     />
                   </div>
                 </SwiperSlide>
